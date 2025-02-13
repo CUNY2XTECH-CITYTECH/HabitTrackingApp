@@ -29,6 +29,18 @@ app.listen(PORT, () => {
 });
 
 
+// ErrorHandler Part
+// Add this AFTER all routes
+app.use(errorHandler());
+
+// Custom error handler
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).json({ message: "Something went wrong! Please Try Again!" });
+});
 
 
+//for the routes
+import protectedRoutes from "./routes/protectedRoutes.js";
 
+app.use("/protected", protectedRoutes);
