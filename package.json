@@ -11,7 +11,13 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.1.6"
+    "next": "15.1.6",
+    "dotenv": "16.0.3",
+	  "drizzle-orm": "0.38.3",
+	  "pg": "8.13.1",
+	  "postgresql": "^0.0.1",
+    "@types/pg": "8.11.11",
+	  "drizzle-kit": "0.30.4"
   },
   "devDependencies": {
     "typescript": "^5",
