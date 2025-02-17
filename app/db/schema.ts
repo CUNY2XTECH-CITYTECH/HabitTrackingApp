@@ -1,4 +1,5 @@
-import { pgTable, varchar, uuid } from "drizzle-orm/pg-core"
+import {integer, varchar, pgTable, uuid} from "drizzle-orm/pg-core"
+
 
 export const users = pgTable('users', {
     user_id : uuid().primaryKey().defaultRandom(),
@@ -12,6 +13,7 @@ export const users = pgTable('users', {
 export type User = typeof users.$inferSelect;     //inferSelect helps in using SELECT queries for database. 
 export type NewUser = typeof users.$inferInsert;  //helps in inserting data into database & omits primary key or optional columns
 
+
 export const posts = pgTable('posts', {
     user_id : uuid().primaryKey().defaultRandom(),
 });
@@ -19,5 +21,3 @@ export const posts = pgTable('posts', {
 export const photos = pgTable('photos', {
     user_id : uuid().primaryKey().defaultRandom(),
 });
-
-

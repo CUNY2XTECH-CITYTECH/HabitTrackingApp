@@ -1,3 +1,5 @@
+version: '3'
+
 services:
 
   postgres:
@@ -5,7 +7,7 @@ services:
     ports: 
       - '5432:5432'
     environment:
-      - POSTGRES_PASSWORD=4484
+      - POSTGRES_PASSWORD=postgres
 
   supertokens:
     image: registry.supertokens.io/supertokens/supertokens-postgresql
