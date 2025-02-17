@@ -13,6 +13,7 @@ const pool = new Pool({
     database: process.env.DATABASE,
     host: process.env.DATABASE_HOST,
     port: parseInt(process.env.DATABASE_PORT!),
+    ssl: false
     //ssl: false   use this only if you are using fly.io
 });
 
@@ -22,4 +23,3 @@ config({ path: ".env" }); // or .env.local
 export const db = drizzle(pool, {
     schema: schema
 });
-
