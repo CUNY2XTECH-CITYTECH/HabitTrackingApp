@@ -5,7 +5,7 @@ export default function Nav() {
   const router = useRouter();
 
   const handleLogout = () => {
-    // Clear user session (modify as needed based on auth system)
+   
     localStorage.removeItem("userToken"); 
     router.push("/login");
   };
