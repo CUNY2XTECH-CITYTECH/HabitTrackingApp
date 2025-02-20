@@ -1,11 +1,10 @@
-/*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>*/
+import SignupForm from "../../../components/signup/signup-form";
+
+export default function SignupPage() {
+    return (
+        <div>
+            <h1>Sign Up</h1>
+            <SignupForm />
+        </div>
+    );
+}
