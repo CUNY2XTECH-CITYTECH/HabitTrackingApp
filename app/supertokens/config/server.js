@@ -34,7 +34,7 @@ app.listen(PORT, () => {
 app.use(errorHandler());
 
 // Custom error handler
-app.use((err, req, res, next) => {
+app.use((err, res) => {
     console.error(err);
     res.status(500).json({ message: "Something went wrong! Please Try Again!" });
 });

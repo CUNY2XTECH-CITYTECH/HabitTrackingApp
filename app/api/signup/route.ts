@@ -1,4 +1,4 @@
-import {db, User, NewUser, users} from '@/app/db/index';
+import {db, NewUser, users} from '@/app/db/index';
 
 
 
