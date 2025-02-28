@@ -40,7 +40,7 @@ const LoginForm = () =>{
             } else {
                 // sign in successful. The session tokens are automatically handled by
                 // the frontend SDK
-                window.location.href = "/homepage"
+                window.location.href = "/home"
             }
         } catch (err: any) {
             if (err.isSuperTokensGeneralError === true) {
@@ -75,12 +75,13 @@ const LoginForm = () =>{
             
         }}>
             <form style={{
-    backgroundColor: '#fff', 
-    padding: '20px', 
-    borderRadius: '10px', // Add a border radius to give the form a rounded corner effect
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', // Add a box shadow to give the form a lift up effect
-    maxWidth: '50vw', // Set a maximum width for the form
-    margin: 'auto'}} onSubmit = {handleSubmit}>
+                backgroundColor: '#fff', 
+                padding: '20px', 
+                borderRadius: '10px', // Add a border radius to give the form a rounded corner effect
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', // Add a box shadow to give the form a lift up effect
+                maxWidth: '50vw', // Set a maximum width for the form
+                margin: 'auto'}} 
+                onSubmit = {handleSubmit}>
             <div>
                 <label style={{
                     fontSize: '30px',
