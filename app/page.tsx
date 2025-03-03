@@ -1,4 +1,3 @@
-// import Image from "next/image";
 import "./supertokens/config/supertokensInit";
 import LoginForm from "./components/login-form/login-form";
 
