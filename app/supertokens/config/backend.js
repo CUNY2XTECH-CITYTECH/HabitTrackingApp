@@ -3,7 +3,8 @@ import supertokens from "supertokens-node";
 import Session from "supertokens-node/recipe/session";
 import EmailPassword from "supertokens-node/recipe/emailpassword";
 import {appInfo} from "./appInfo";
-import UserMetadata from "supertokens-node/recipe/usermetadata";
+
+// import UserMetadata from "supertokens-node/recipe/usermetadata";
 
 let backendSuperTokenInit = false; 
 
