@@ -1,7 +1,8 @@
 
 "use client"
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FormEvent } from "react";
-import { signIn, signUp } from "supertokens-web-js/recipe/emailpassword";
+import { signIn } from "supertokens-web-js/recipe/emailpassword";
 
 const LoginForm = () =>{
 
@@ -9,7 +10,7 @@ const LoginForm = () =>{
     async function signInClicked(email: string, password: string) {
         try {
 
-            let response = await signIn({
+            const response = await signIn({
                 formFields: [{
                     id: "email",
                     value: email
