@@ -3,7 +3,7 @@ import {db, NewUser, users} from '@/app/db/index';
 
 
 const createUser = async (user: NewUser ) =>{
-    const newUser = await db.insert(users).values(user).returning()
+    const newUser = await db.insert(users).values(user).returning();
 
     return newUser; 
 }
