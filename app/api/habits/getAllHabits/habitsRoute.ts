@@ -3,7 +3,7 @@ import { eq } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
 import { verifySession } from 'supertokens-node/recipe/session/framework/express';
 
-// Middleware to check authentication
+
 async function checkAuth(request: NextRequest) {
     try {
         const session = await verifySession()(request as any, {} as any);
