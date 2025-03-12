@@ -1,32 +1,35 @@
-import HabitDetails from "@/app/habitDetails/page";
 import Link from "next/link";
 import { useState } from "react";
 
 
+//Need to configure this props as per our needs. Will we pass everything? Or just the necessary fields?
 export interface HabitInfo {
-  posts_id: string;
-  posts_details: string;
+  id: string;
+  owner_id: string;
+  content: string;
+  image_url: string;
 }
 
 //Not sure if we need to send everything as a prop or just the posts_id. 
 //need to correct this. Since, after the button is clicked we are getting everything from the database. 
 //Once the HabitComponent is rendered using map after retreving all the posts. I will render everything. 
 const HabitComponent = (habit: HabitInfo) => {
-  const posts_id = habit.posts_id;
-  const posts_details = habit.posts_details;
-
+  const habit_id = habit.id;
+  const habit_content = habit.content;
+  const habit_image= habit.image_url;
+  const habit_owner = habit.owner_id; 
 
   return (
     <>
       <div className="p-5">
         <div className=" bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm rounded-lg p-2 ">
           <h1 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-            Meditation
+            Title
 
             <Link
               href={{
                 pathname: "/habitDetails",
-                query: {"posts_id": posts_id}, // the data
+                query: {"habit_id": habit_id}, // the data
               }}
             >
               <button
@@ -38,7 +41,7 @@ const HabitComponent = (habit: HabitInfo) => {
             </Link>
           </h1>
 
-          {posts_details}
+          {habit_content}
         </div>
       </div>
     </>
