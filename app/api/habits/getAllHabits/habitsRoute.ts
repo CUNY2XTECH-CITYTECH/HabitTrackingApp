@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
         }
 
         const userId = session.getUserId();
-        const userHabits = await db.select().from(habits).where(eq(habits.ownerId, userId));
+        const userHabits = await db.select().from(habits).where(eq(habits.owner_id , userId));
 
         return NextResponse.json(userHabits, { status: 200 });
     } catch (error) {
