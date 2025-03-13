@@ -20,3 +20,7 @@ export const habits = pgTable('habits', {
     content: varchar({ length: 255 }), // Text content for the habit
     image_url: varchar({ length: 255 })
 });
+
+export type Habits = typeof habits.$inferSelect;     //inferSelect helps in using SELECT queries for database. 
+export type NewHabits = typeof habits.$inferInsert;  //helps in inserting data into database & omits primary key or optional columns
+
