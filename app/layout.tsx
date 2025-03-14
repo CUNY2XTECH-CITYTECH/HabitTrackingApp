@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { SuperTokensInit } from "./supertokens/config/supertokensInit";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,11 +25,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* It is initialized here so that it will be consistent across the application. */}
+      <SuperTokensInit>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+     
         {children}
+       
       </body>
+      </SuperTokensInit>
+      
     </html>
   );
 }
