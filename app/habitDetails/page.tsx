@@ -3,18 +3,16 @@
 import { useEffect, useState } from "react";
 import { HabitInfo } from "../components/habit/habit-component";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 //need to pass props of postsID to make it dynamic
 //The varchar in the database doesnt hold much information. we might need json instead of varchar. 
 
-
 const HabitDetails = () => {
-
   //since the database fields for posts table is not configured/created. This could change. 
- 
-
+  const [habitContent, setHabitContent] = useState<string | null>(null);
   const searchParams = useSearchParams();
-  const [habitContent, setHabitContent] = useState<String | null>(null);
+  
   const habit_id = searchParams.get("habit_id");
   
   useEffect(() => {
@@ -37,7 +35,7 @@ const HabitDetails = () => {
     };
 
     habit();
-  }, []);
+  }, [habit_id]);
 
   return (
     //need to do some front end configuration with tailwind for better UI
@@ -53,4 +51,12 @@ const HabitDetails = () => {
   );
 };
 
-export default HabitDetails; // export default HabitDetais;
+const Page = () => {
+  return (
+    <Suspense>
+      <HabitDetails />
+    </Suspense>
+  )
+}
+
+export default Page; // export default HabitDetais;

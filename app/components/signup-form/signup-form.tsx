@@ -64,7 +64,7 @@ export default function SignupForm() {
 
   const checkEmail = async (email: string) => {
     try {
-      let response = await doesEmailExist({
+      const response = await doesEmailExist({
         email,
       });
 

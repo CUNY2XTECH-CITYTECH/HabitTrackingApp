@@ -10,11 +10,11 @@ export async function GET(request: NextRequest) {
 
         const userId = retrieveUrl.searchParams.get("user_id");
         
-        const fetchedHabits = await db.select({content: habits.content}).from(habits).where(eq(habits.owner_id , userId!));
+        const userHabits = await db.select({content: habits.content}).from(habits).where(eq(habits.owner_id , userId!));
 
-        return NextResponse.json(fetchedHabits, { status: 200 });
-        
+        return NextResponse.json(userHabits, { status: 200 });
+
     } catch (error) {
-        return NextResponse.json({ error: 'Something went wrong' }, { status: 500 });
+        return NextResponse.json({ message: `Something went wrong: ${error}` }, { status: 500 });
     }
 }
