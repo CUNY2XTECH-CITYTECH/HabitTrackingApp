@@ -1,8 +1,8 @@
+'use client'
 import Link from "next/link";
-import { useState } from "react";
 
 
-//Need to configure this props as per our needs. Will we pass everything? Or just the necessary fields?
+//Need to configure this props as per our needs. Will we pass everything? Or just the necessary fields? // Necessary fields
 export interface HabitInfo {
   id: string;
   owner_id: string;
@@ -16,8 +16,8 @@ export interface HabitInfo {
 const HabitComponent = (habit: HabitInfo) => {
   const habit_id = habit.id;
   const habit_content = habit.content;
-  const habit_image= habit.image_url;
-  const habit_owner = habit.owner_id; 
+  // const habit_image= habit.image_url;
+  // const habit_owner = habit.owner_id; 
 
   return (
     <>

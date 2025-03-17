@@ -1,6 +1,6 @@
 import {db} from '@/app/db/index'
 import { eq } from 'drizzle-orm';
-import {habits, NewHabits, Habits} from '@/app/db/schema'
+import {habits} from '@/app/db/schema'
 
 
 //need to handle all the end cases like null or no payload.
@@ -19,8 +19,5 @@ export const GET = async(request:Request)=> {
 }
 
 
-export const POST = async(request:Request)=>{
-
-
-
-}
+// export const POST = async(request:Request)=>{
+// }
