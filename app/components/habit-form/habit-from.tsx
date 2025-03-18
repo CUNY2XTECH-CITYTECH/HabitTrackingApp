@@ -1,4 +1,5 @@
-import { useState } from 'react';
+
+import { use, useState } from 'react';
 
 const HabitForm = () => {
   const [habit, setHabit] = useState('');
@@ -10,10 +11,10 @@ const HabitForm = () => {
 
     try {
       //post request 
-      const response = await fetch('/api/habits', {
+      const response = await fetch('/api/habit/create-habit', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json', 
         },
         body: JSON.stringify({ habit }),
       });
