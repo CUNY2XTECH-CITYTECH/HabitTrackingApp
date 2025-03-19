@@ -18,6 +18,21 @@ export const GET = async(request:Request)=> {
 
 }
 
+export const DELETE = async(request:Request)=>{
+
+
+    const retrieveUrl = await new URL(request.url);
+    
+    const habit_id = retrieveUrl.searchParams.get("habit_id");
+  
+    const habit = await db.delete(habits)
+                            .where(eq(habits.id, habit_id!));         //posts_id! because next js thinks it could be null
+
+
+     return Response.json(`Habit with id ${habit_id} Deleted Successfully`);
+
+}
+
 
 // export const POST = async(request:Request)=>{
 // }
