@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import { HabitInfo } from "../components/habit/habit-component";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 
