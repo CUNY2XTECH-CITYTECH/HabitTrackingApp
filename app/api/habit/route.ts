@@ -34,5 +34,3 @@ export const DELETE = async(request:Request)=>{
 }
 
 
-// export const POST = async(request:Request)=>{
-// }
