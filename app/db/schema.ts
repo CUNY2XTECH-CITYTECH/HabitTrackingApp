@@ -9,10 +9,8 @@ export const users = pgTable('users', {
     email : varchar({length : 70}).notNull().unique()
 });
 
-
 export type User = typeof users.$inferSelect;     //inferSelect helps in using SELECT queries for database. 
 export type NewUser = typeof users.$inferInsert;  //helps in inserting data into database & omits primary key or optional columns
-
 
 export const habits = pgTable('habits', {
     id: uuid().primaryKey().defaultRandom(),
@@ -23,4 +21,13 @@ export const habits = pgTable('habits', {
 
 export type Habits = typeof habits.$inferSelect;     //inferSelect helps in using SELECT queries for database. 
 export type NewHabits = typeof habits.$inferInsert;  //helps in inserting data into database & omits primary key or optional columns
+
+export const likes = pgTable('likes', {
+    id: uuid().primaryKey().defaultRandom(),
+    owner_id: uuid().notNull().references(() => users.user_id),
+    habit_id: uuid().notNull().references(() => habits.id)
+});
+
+export type Like = typeof likes.$inferInsert;
+export type NewLike = typeof  likes.$inferInsert;
 
