@@ -21,8 +21,14 @@
         image_url: varchar({ length: 255 })
     });
 
+    export type Habits = typeof habits.$inferInsert;
+    export type NewHabit = typeof habits.$inferInsert;
+
     export const likes = pgTable('likes', {
         id: uuid().primaryKey().defaultRandom(),
         owner_id: uuid().notNull().references(() => users.user_id),
         habit_id: uuid().notNull().references(() => habits.id)
     });
+
+    export type Like = typeof likes.$inferInsert;
+    export type NewLike = typeof  likes.$inferInsert;
