@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import HabitComponent, { HabitInfo } from './HabitComponent'; 
+import HabitComponent, { HabitInfo } from "@/app/components/habit/habit-component";
+ 
 
 interface UserFeedProps {
   userId: string;
 }
 
 const UserFeed: React.FC<UserFeedProps> = ({ userId }) => {
-  const [habits, setHabits] = useState<HabitInfo[]>([]);
+
+  const [habits, setHabits] = useState< HabitInfo[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -32,10 +34,11 @@ const UserFeed: React.FC<UserFeedProps> = ({ userId }) => {
 
   return (
     <div className="user-feed">
-      {habits.map((habit) => (
-        <HabitComponent key={habit.id} habit={habit} />  
-      ))}
-    </div>
+    {habits.map((habit) => (
+      <HabitComponent key={habit.id} {...habit} /> 
+    ))}
+  </div>
+
   );
 };
 
