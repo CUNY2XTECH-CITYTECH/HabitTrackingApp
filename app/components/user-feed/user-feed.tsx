@@ -44,4 +44,3 @@ const UserFeed: React.FC<UserFeedProps> = ({ userId }) => {
 
 export default UserFeed;
 
-
