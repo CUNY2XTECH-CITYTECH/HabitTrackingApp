@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HabitComponent, { HabitInfo } from "@/app/components/habit/habit-component";
-//fixed
+//fixed user-feed component.
 
 interface UserFeedProps {
   userId: string;
