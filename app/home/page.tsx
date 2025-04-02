@@ -1,8 +1,10 @@
 "use client";
 import Nav from '../components/nav';
 import { useRouter } from "next/navigation";
+import Authenticate from '../middleware';
+import { Suspense, useEffect } from 'react';
 
-export default function Homepage() {
+function Homepage() {
   const router = useRouter();
 
   return (
@@ -31,3 +33,17 @@ export default function Homepage() {
     </div>
   );
 }
+
+const Page = () => {
+  useEffect(() => {
+    Authenticate();
+  }, []);
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Homepage />
+    </Suspense>
+  );
+};
+
+export default Page;

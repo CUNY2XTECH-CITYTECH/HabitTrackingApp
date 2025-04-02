@@ -4,8 +4,6 @@ import Session from "supertokens-node/recipe/session";
 import EmailPassword from "supertokens-node/recipe/emailpassword";
 import {appInfo} from "./appInfo";
 
-// import UserMetadata from "supertokens-node/recipe/usermetadata";
-
 let backendSuperTokenInit = false; 
 
 //this makes sure that supertoken in the backend is initialized. 
@@ -21,7 +19,9 @@ supertokens.init({
     appInfo,
     recipeList: [
         EmailPassword.init(), //  signin/signup
-        Session.init() // 
+        Session.init({
+            exposeAccessTokenToFrontendInCookieBasedAuth: true,
+        })
     ]
 });
 

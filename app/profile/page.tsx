@@ -2,12 +2,16 @@
 import { useState, useEffect } from "react";
 import UserFeed from "../components/user-feed/user-feed";
 import Session from 'supertokens-web-js/recipe/session';
+import Authenticate from "../middleware";
 
 const Profile = () => {
-  const [userId, setUserId] = useState<String>("");
-  const [userDetails, setUserDetails] = useState(); 
+
+      const [userId, setUserId] = useState<String>("");
+      const [userDetails, setUserDetails] = useState(); 
+
       useEffect(() => {
         
+          Authenticate();                 //middlewares
           async function getJWT() {
             if (await Session.doesSessionExist()) {
                   let userId = await Session.getUserId();

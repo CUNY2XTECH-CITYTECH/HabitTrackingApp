@@ -1,13 +1,23 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Session from 'supertokens-web-js/recipe/session';
 
 export default function Nav() {
   const router = useRouter();
 
   const handleLogout = () => {
     // Clear user session (modify as needed based on auth system)
-    localStorage.removeItem("userToken"); 
-    router.push("/login");
+    //Do we want to use supertoken Session.signOut(); 
+    // localStorage.removeItem("userToken"); 
+    // router.push("/login");
+
+    //https://supertokens.com/docs/post-authentication/session-management/session-invalidation
+    async function supertokenLogOut(){
+      await Session.signOut(); 
+      router.push("login"); 
+
+    }
+    supertokenLogOut();
   };
 
   return (
