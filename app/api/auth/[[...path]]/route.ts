@@ -1,6 +1,8 @@
 import { getAppDirRequestHandler } from 'supertokens-node/nextjs';
-import { NextRequest } from 'next/server';
-import '../../../supertokens/config/backend';
+import { NextRequest, NextResponse } from 'next/server';
+import SuperTokens from 'supertokens-node';
+import { withSession } from 'supertokens-node/custom';          //custom since our backend is configured as framework: "custom"
+import '../../../supertokens/config/backend';                   //this calls backend config for supertoken
 
 
 //Backend supertoken has a 
@@ -18,8 +20,17 @@ export async function GET(request: NextRequest) {
   return res;
 }
 
+
+
 export async function POST(request: NextRequest) {
   return handleCall(request);
+//    return withSession(request, async (err, session) => {
+//     if (err) {
+//         return NextResponse.json(err, { status: 500 });
+//     }
+//     let jwt = session!.getAccessToken();
+//     return NextResponse.json({ token: jwt });
+// });
 }
 
 export async function DELETE(request: NextRequest) {

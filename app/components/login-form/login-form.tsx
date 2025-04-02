@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FormEvent } from "react";
 import { signIn } from "supertokens-web-js/recipe/emailpassword";
+import { getUserId } from "supertokens-web-js/recipe/session";
 
 const LoginForm = () =>{
 
@@ -9,6 +10,7 @@ const LoginForm = () =>{
     async function signInClicked(email: string, password: string) {
         try {
 
+           
             const response = await signIn({
                 formFields: [{
                     id: "email",
@@ -40,6 +42,8 @@ const LoginForm = () =>{
             } else {
                 // sign in successful. The session tokens are automatically handled by
                 // the frontend SDK
+                const user_id = getUserId; 
+                console.log(user_id); 
                 window.location.href = "/home"
             }
         } catch (err: any) {
@@ -71,7 +75,8 @@ const LoginForm = () =>{
             width : '100vw',
             flexDirection:'column',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            marginTop: '15vh',
             
         }}>
             <form style={{
